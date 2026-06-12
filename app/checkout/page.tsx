@@ -1,11 +1,20 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 
 export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div style={styles.container}>Loading checkout...</div>}>
+      <CheckoutContent />
+    </Suspense>
+  );
+}
+
+function CheckoutContent() {
   const searchParams = useSearchParams();
 
   const game = searchParams.get("game") || "-";

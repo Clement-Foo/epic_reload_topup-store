@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import type { CSSProperties } from "react";
 
 export default function Home() {
   const games = [
@@ -53,7 +54,7 @@ export default function Home() {
   );
 }
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   container: {
     minHeight: "100vh",
     padding: "35px",
